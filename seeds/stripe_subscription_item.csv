@@ -1,0 +1,7 @@
+subscription_item_id,subscription_id,product_id
+si_1a,sub_1,prod_1
+si_1b,sub_1,prod_4
+si_2a,sub_2,prod_2
+si_2b,sub_2,prod_4
+si_3a,sub_3,prod_3
+si_3b,sub_3,prod_5

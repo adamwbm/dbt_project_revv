@@ -1,0 +1,6 @@
+product_id,interval_type,interval_count,type,unit_amount
+prod_1,month,1,plan,50000
+prod_2,month,3,plan,150000
+prod_3,month,1,plan,70000
+prod_4,month,1,reports,
+prod_5,month,1,reports,

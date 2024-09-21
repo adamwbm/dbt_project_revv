@@ -1,0 +1,4 @@
+subscription_id,customer_id,subscription_date
+sub_1,cus_1,2024-01-03
+sub_2,cus_2,2024-01-04
+sub_3,cus_3,2024-01-05
