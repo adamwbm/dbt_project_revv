@@ -32,6 +32,9 @@ models:
         materialized: view
       mart:
         materialized: table
+      reports:
+        materialized: view
+
 
 seeds:
   dbt_project:

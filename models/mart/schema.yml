@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: dim_customer
-    description: "customers dim table"
+    description: "customers dimension table"
     columns:
       - name: customer_id
         description: "The primary key for this table"

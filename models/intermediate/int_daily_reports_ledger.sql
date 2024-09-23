@@ -72,7 +72,7 @@ each_use as (
 	from daily_usage du
 		left join rolling_payments rpr
 		on du.product_used_at between (rpr.last_payment_date) and coalesce(rpr.next_payment_date - interval '1 day','01-01-2099')
-		and du.customer_id::int = rpr.customer_id
+		and du.customer_id = rpr.customer_id
 		left join dim_product dp 
 		on dp.product_id = du.product_id
 	order by 1,4

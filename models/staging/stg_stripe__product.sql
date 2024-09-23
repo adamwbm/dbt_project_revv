@@ -2,7 +2,7 @@ with
 
 source as (
     select 
-        REGEXP_REPLACE(product_id,'prod_','') as product_id,
+        cast(REGEXP_REPLACE(product_id,'prod_','') as int) as product_id,
         interval_type,
         interval_count,
         type,

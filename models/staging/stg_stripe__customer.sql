@@ -2,7 +2,7 @@ with
 
 source as (
     select 
-        REGEXP_REPLACE(customer_id,'cus_','') as customer_id,
+        cast(REGEXP_REPLACE(customer_id,'cus_','') as int) as customer_id,
         customer_name
     from {{ ref('stripe_customer') }}
 )
