@@ -47,7 +47,7 @@ pip install -r requirements.txt
 
 
 ### PostgreSQL Setup
-To create a local PostgreSQL instance using Docker, run the following command:
+To create a local PostgreSQL instance using Docker, run the following command (Make sure to replace `/your/local/path` with the actual directory on your machine where you'd like to store the PostgreSQL data):
 ```bash
 docker run --name postgres \
     -e POSTGRES_USER=myusername \
@@ -56,7 +56,6 @@ docker run --name postgres \
     -v /your/local/path:/var/lib/postgresql/data \
     -d postgres
 ```
-Make sure to replace `/your/local/path` with the actual directory on your machine where you'd like to store the PostgreSQL data.
 
 
 ### Running the Project
