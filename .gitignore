@@ -2,4 +2,4 @@ target/
 dbt_packages/
 logs/
 dbt_project/models/mart/fct_monthly_cost.sql
-dbt_project/models/intermediate/int_daily_reports_ledger.sql
+dbt_project/models/intermediate/int_daily_reports_ledger_DONOTUSE.sql
