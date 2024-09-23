@@ -1,5 +1,5 @@
 target/
 dbt_packages/
 logs/
-fct_monthly_cost.sql
-int_daily_reports_ledger.sql
+/Users/adamweisberg/repos/revv_project/dbt_project/models/mart/fct_monthly_cost.sql
+/Users/adamweisberg/repos/revv_project/dbt_project/models/intermediate/int_daily_reports_ledger.sql
