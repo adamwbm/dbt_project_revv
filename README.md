@@ -14,7 +14,7 @@ The first main challenges I encountered was determining how to tie plan data to 
 
 The other challenge was fully understanding the raw data. I made some assumptions about MoQ and tier usage data that might explain the discrepancies in the final results. In a real world scenario, I would rely on communication with a product manager or engineer to clear up ambiguity.
 
-There is plenty of documentation, cleanup and optimization that could be done going forward, but considered this out of scope for the project. If I had time, I would improve the column namings and add comments to my code and perhapse use macros and additonal CTEs to improve the code modularity.
+There is plenty of documentation, cleanup and optimization that could be done going forward, but U considered this out of scope for the project. If I had additional time, I would improve the column namings and add comments to my code and perhapse use macros and additonal CTEs to improve the code modularity.
 
 ## Project Structure
 ```bash
