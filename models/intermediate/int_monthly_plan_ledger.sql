@@ -1,6 +1,6 @@
 with
 
-recursive plan_monthly AS (
+recursive plan_monthly as (
 	select 
 		s.subscription_item_id, 
 		s.subscription_id,

@@ -2,7 +2,7 @@
 # Financial Ledger - DBT Project
 
 ## Overview
-This project uses DBT (Data Build Tool) to consolidate financial data into a Kimball-style dimensional model to ultimately build a financial ledger for both the plan and reports subscription lines of business. The pipeline consists of two layers:
+This project uses DBT (Data Build Tool) to consolidate financial data into a Kimball-style dimensional model to ultimately build a financial ledger for both the plan and reports subscription lines of business. The pipeline consists of 4 layers:
 - **Staging Layer**: Raw data from seed files is cleaned and normalized with lightweight transformations and joins to prepare the data for further processing. This layer is constructed as views to reduce resource usage and complexity.
 - **Intermediate Layer**: This layer is used to help keep the mart clean and abstract away heavy computation. Currently it is holding 2 ledger tables in anticipation of a single consolidated ledger built within the mart table. If it's decided that they are best kept separate, they can be moved to the mart as fact tables.
 - **Marts Layer**: The models in the marts layer are materialized as tables, representing business-ready data optimized for reporting and analytics.
