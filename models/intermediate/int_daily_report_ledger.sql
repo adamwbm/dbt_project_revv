@@ -16,7 +16,7 @@ billing_usage as (
             using (subscription_item_id)
 )
 
-,billing_dates as (
+,billing_rolling_sums as (
     select 
         subscription_item_id,
         subscription_id,
@@ -57,7 +57,7 @@ billing_usage as (
         max(rolling_sum_quantity_total) as rolling_sum_quantity_total,
         sum(quantity) as quantity,
         max(rolling_sum_quantity_in_billing_period) as rolling_sum_quantity_in_billing_period
-    from billing_dates
+    from billing_rolling_sums
     group by 1,2,3,4,5,6,7,8
 )
 
