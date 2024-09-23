@@ -16,7 +16,7 @@ fifteenth_of_month AS (
 	    customer_id,
 		sum(billable_quantity * unit_cost_dollars) as report_balance_due
 	    --max(total_reports_billable_dollars) as report_balance_due
-    from {{ ref('int_daily_report_ledger_v2') }} 
+    from {{ ref('int_daily_report_ledger') }} 
     	inner join fifteenth_of_month
     	on product_used_at < fifteenth_of_month.fifteenth_date
     where same_month_ind = 0 
@@ -29,7 +29,7 @@ fifteenth_of_month AS (
 	fifteenth_of_month.fifteenth_date as report_date,
 	customer_id,
 	round(sum(billable_quantity)/max(rolling_sum_quantity_total)*100,2) as percent_reports_billable
-	from {{ ref('int_daily_report_ledger_v2') }}
+	from {{ ref('int_daily_report_ledger') }}
 	inner join fifteenth_of_month
     	on product_used_at < fifteenth_of_month.fifteenth_date
 	where product_used_at < fifteenth_of_month.fifteenth_date
