@@ -1,4 +1,5 @@
-
 target/
 dbt_packages/
 logs/
+fct_monthly_cost.sql
+int_daily_reports_ledger.sql
