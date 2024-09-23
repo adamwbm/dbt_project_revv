@@ -10,7 +10,7 @@ products as (
         coalesce(p.unit_cost_dollars,t.unit_cost_dollars) as unit_cost_dollars
     from {{ ref('stg_stripe__product') }} p
         left join {{ ref('stg_stripe__tier') }} t
-        using(product_id)
+            using(product_id)
 )
 
 select * from products

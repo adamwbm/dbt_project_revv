@@ -6,15 +6,15 @@ usage as (
 		case when EXTRACT(DAY FROM u.product_used_at) >= EXTRACT(DAY FROM s.subscription_start_date) 
 			then EXTRACT(MONTH FROM u.product_used_at) 
 			else EXTRACT(MONTH FROM u.product_used_at - INTERVAL '1 month')
-			end as billing_month,
+		    end as billing_month,
 		case when EXTRACT(DAY FROM u.product_used_at) >= EXTRACT(DAY FROM s.subscription_start_date) 
 			then EXTRACT(YEAR FROM u.product_used_at) 
 			else EXTRACT(YEAR FROM u.product_used_at - INTERVAL '1 month')
-			end as billing_year,
+		    end as billing_year,
 		u.quantity
 	from {{ ref('stg_stripe__usage') }} u
 		inner join {{ ref('stg_stripe__subscription') }} s
-		using(subscription_item_id)
+		    using(subscription_item_id)
 )
 
 ,final as (

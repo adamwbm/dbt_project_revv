@@ -12,8 +12,8 @@ billing_usage as (
         extract(DAY from s.subscription_start_date) as start_day,
         u.quantity
     from {{ ref('stg_stripe__usage') }} u
-    inner join stg_stripe__subscription s
-    using (subscription_item_id)
+        inner join stg_stripe__subscription s
+            using (subscription_item_id)
 )
 
 ,billing_dates as (
@@ -98,11 +98,11 @@ billing_usage as (
         rpr.next_payment_date,
         rpr.rolling_sum_payment
     from daily_usage du
-    left join rolling_payments rpr
-        on du.product_used_at between rpr.last_payment_date and coalesce(rpr.next_payment_date - interval '1 day', '2099-01-01')
-        and du.customer_id = rpr.customer_id
-    left join {{ ref('dim_product') }} dp 
-        on dp.product_id = du.product_id
+        left join rolling_payments rpr
+            on du.product_used_at between rpr.last_payment_date and coalesce(rpr.next_payment_date - interval '1 day', '2099-01-01')
+            and du.customer_id = rpr.customer_id
+        left join {{ ref('dim_product') }} dp 
+            on dp.product_id = du.product_id
     order by du.subscription_item_id, du.product_id
 )
 

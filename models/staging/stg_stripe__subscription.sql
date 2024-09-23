@@ -9,7 +9,7 @@ source as (
         s.subscription_date as subscription_start_date
     from {{ ref('stripe_subscription_item') }} si
         inner join {{ ref('stripe_subscription') }} s
-        using(subscription_id)
+            using(subscription_id)
 )
 
 select * from source

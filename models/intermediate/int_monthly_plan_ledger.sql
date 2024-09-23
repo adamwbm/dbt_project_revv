@@ -1,9 +1,6 @@
-
 with
 
-
 recursive plan_monthly AS (
-    
 	select 
 		s.subscription_item_id, 
 		s.subscription_id,
@@ -17,9 +14,9 @@ recursive plan_monthly AS (
 		unit_cost_dollars
 	from {{ ref('fct_subscription') }} s
 		inner join {{ ref('dim_product') }} p
-		on s.product_id = p.product_id
+			on s.product_id = p.product_id
 		left join {{ ref('fct_usage_monthly') }} um
-		on s.subscription_item_id = um.subscription_item_id
+			on s.subscription_item_id = um.subscription_item_id
 	where product_type = 'plan'
     
     union all
