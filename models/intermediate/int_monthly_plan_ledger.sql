@@ -44,7 +44,7 @@ recursive plan_monthly AS (
         ,extract(year from billing_date) as billing_year
         ,case when interval_count > 1 then (ROW_NUMBER() over (partition by subscription_item_id order by billing_date) -1) % interval_count + 1 
             else 1 end as interval_rank
-	FROM plan_monthly
+	from plan_monthly
 	order by 1,billing_date
 )
 

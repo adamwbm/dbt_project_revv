@@ -2,10 +2,11 @@
 # Financial Ledger - DBT Project
 
 ## Overview
-This project uses dbt (Data Build Tool) to consolidate financial data into a Kimball-style dimensional model to ultimately build a financial ledger for both the plan and reports subscription lines of buisness. The pipeline consists of two layers:
+This project uses DBT (Data Build Tool) to consolidate financial data into a Kimball-style dimensional model to ultimately build a financial ledger for both the plan and reports subscription lines of business. The pipeline consists of two layers:
 - **Staging Layer**: Raw data from seed files is cleaned and normalized with lightweight transformations and joins to prepare the data for further processing. This layer is constructed as views to reduce resource usage and complexity.
+- **Intermediate Layer**: This layer is used to help keep the mart clean and abstract away heavy computation. Currently it is holding 2 ledger tables in anticipation of a single consolidated ledger built within the mart table. If it's decided that they are best kept separate, they can be moved to the mart as fact tables.
 - **Marts Layer**: The models in the marts layer are materialized as tables, representing business-ready data optimized for reporting and analytics.
-- **Reports Layer**: The reports to end users are contained in the reports file and built as views. If these views begin to take too long to build for end users as the data scales, these should be converted to tables.
+- **Reports Layer**: The reports to end users are contained in the reports folder and built as views. If these views begin to take too long to build for end users as the data scales, these should be converted to tables.
 
 
 ## Challenges and Future Considerations
@@ -66,7 +67,3 @@ dbt run
 ```
 
 This will execute all transformations defined in the dbt models and materialize the marts as tables in your PostgreSQL instance.
-
-## Additional Notes
-- **Data Governance**: Staging models are kept lightweight and focus only on cleaning and standardizing the raw data. Any complex business logic or calculations are deferred to the marts layer.
-- **Performance Considerations**: Tables in the marts layer are optimized for querying and reporting to ensure fast, reliable access to financial data. The use of views in the staging layer keeps the development process agile and resource-efficient.
