@@ -57,7 +57,6 @@ billing_usage as (
         max(rolling_sum_quantity_total) as rolling_sum_quantity_total,
         sum(quantity) as quantity,
         max(rolling_sum_quantity_in_billing_period) as rolling_sum_quantity_in_billing_period
-        --max(rolling_sum_quantity_total) as rolling_sum_quantity_total
     from billing_dates
     group by 1,2,3,4,5,6,7,8
 )
@@ -94,9 +93,6 @@ billing_usage as (
         case when du.billing_month = extract(month from du.product_used_at) then 1 else 0 
             end as same_month_ind,
         dp.unit_cost_dollars,
-        -- case when rolling_sum_quantity_in_billing_period >= max_billing_amount 
-        --     then rolling_sum_quantity_in_billing_period - max_billing_amount 
-        --     else 0 end * unit_cost_dollars as billable_reports_in_pay_period,
         rolling_sum_quantity_total,
         rpr.last_payment_date,
         rpr.next_payment_date,

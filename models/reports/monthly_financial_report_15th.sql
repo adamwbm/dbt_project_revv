@@ -15,7 +15,6 @@ fifteenth_of_month AS (
     	fifteenth_of_month.fifteenth_date as report_date,
 	    customer_id,
 		sum(billable_quantity * unit_cost_dollars) as report_balance_due
-	    --max(total_reports_billable_dollars) as report_balance_due
     from {{ ref('int_daily_report_ledger') }} 
     	inner join fifteenth_of_month
     	on product_used_at < fifteenth_of_month.fifteenth_date
