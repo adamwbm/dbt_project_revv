@@ -10,6 +10,3 @@ dbt_project:
      dbname: postgres
      schema: public
  target: dev
-
-
- #docker run --name postgres -e POSTGRES_USER=myusername -e POSTGRES_PASSWORD=mypassword -p 5432:5432 -v ____/revv_project  -d postgres

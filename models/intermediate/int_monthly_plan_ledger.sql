@@ -53,18 +53,18 @@ recursive plan_monthly AS (
 
 ,final as (
 	select  
-			subscription_item_id, 
-			subscription_id,
-			product_id,
-			customer_id,
-			billing_date, 
-			interval_type,
-			interval_count,
-			product_type,
-			max_billing_amount,
-			unit_cost_dollars,
-			billing_month,
-			billing_year
+		subscription_item_id, 
+		subscription_id,
+		product_id,
+		customer_id,
+		billing_date, 
+		interval_type,
+		interval_count,
+		product_type,
+		max_billing_amount,
+		unit_cost_dollars,
+		billing_month,
+		billing_year
 	from ranked
 	where interval_rank = 1
 )

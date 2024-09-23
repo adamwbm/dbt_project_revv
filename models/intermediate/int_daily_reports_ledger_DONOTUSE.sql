@@ -10,12 +10,10 @@ each_use as (
 		s.subscription_start_date,
 		case when EXTRACT(DAY FROM u.product_used_at) >= EXTRACT(DAY FROM s.subscription_start_date) 
 			then EXTRACT(MONTH FROM u.product_used_at) 
-			else EXTRACT(MONTH FROM u.product_used_at - INTERVAL '1 month')
-			end as billing_month,
+			else EXTRACT(MONTH FROM u.product_used_at - INTERVAL '1 month') end as billing_month,
 		case when EXTRACT(DAY FROM u.product_used_at) >= EXTRACT(DAY FROM s.subscription_start_date) 
 			then EXTRACT(YEAR FROM u.product_used_at) 
-			else EXTRACT(YEAR FROM u.product_used_at - INTERVAL '1 month')
-			end as billing_year,
+			else EXTRACT(YEAR FROM u.product_used_at - INTERVAL '1 month') end as billing_year,
 		u.quantity,
 		SUM(u.quantity) OVER (partition by u.subscription_item_id ORDER BY u.product_used_at ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS rolling_sum_quantity
 	from {{ ref('stg_stripe__usage') }} u
