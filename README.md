@@ -42,12 +42,6 @@ The following dependencies are necessary for running the project. These are mana
 - dbt-postgres
 - PostgreSQL
 
-To install additional dependencies, run:
-```bash
-pip install -r requirements.txt
-```
-
-
 ### PostgreSQL Setup
 To create a local PostgreSQL instance using Docker, run the following command:
 ```bash
